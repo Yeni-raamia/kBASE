@@ -1,0 +1,63 @@
+La Cyber Kill Chain est un modèle développé par Lockheed Martin pour décrire les étapes typiques d'une cyberattaque. Ce modèle aide à comprendre les différentes phases d'une attaque, permettant ainsi de mieux se préparer et de réagir efficacement. Voici une explication des différentes phases de la Cyber Kill Chain, accompagnée des outils et techniques souvent associés à chaque phase :
+
+1. Reconnaissance (Reconnaissance)
+Description : Phase où l'attaquant collecte des informations sur la cible pour planifier l'attaque. Cela peut inclure la collecte de données sur les employés, les systèmes, les réseaux et les vulnérabilités potentielles.
+Outils :
+Nmap : Scanner de réseau pour identifier les services et les systèmes.
+Shodan : Moteur de recherche pour les dispositifs connectés à Internet.
+Maltego : Outil d'analyse de liens pour découvrir des relations entre des informations.
+Recon-ng : Framework pour la reconnaissance et la collecte d'informations.
+
+2. Arme (Weaponization)
+Description : Phase où l'attaquant crée ou acquiert les outils nécessaires pour exploiter les vulnérabilités identifiées. Cela peut inclure la création de logiciels malveillants ou l'utilisation d'exploits existants.
+Outils :
+Metasploit Framework : Plateforme pour développer et exécuter des exploits.
+Cobalt Strike : Outil de simulation d'attaques qui fournit des capacités de post-exploitation.
+Veil-Framework : Outil pour générer des payloads et échapper à la détection antivirus.
+
+3. Livraison (Delivery)
+Description : Phase où l'attaquant transmet l'exploit ou le logiciel malveillant à la cible. Les méthodes de livraison peuvent inclure les e-mails, les sites web compromis, ou les supports amovibles.
+Outils :
+Phishing Kits : Outils pour créer des e-mails de phishing convaincants.
+Exploit Kits : Kits qui exploitent des vulnérabilités du navigateur pour déployer des malwares (par exemple, Angler Exploit Kit).
+Social Engineering Tools : Outils pour créer des leurres convaincants.
+
+4. Exploitation (Exploitation)
+Description : Phase où l'attaquant utilise les outils créés pour exploiter une vulnérabilité dans le système cible, permettant ainsi l'exécution de code malveillant ou l'acquisition d'accès non autorisé.
+Outils :
+Metasploit : Utilisé pour exploiter des vulnérabilités spécifiques.
+Nessus : Outil pour scanner les vulnérabilités et parfois exploiter certaines d'entre elles.
+Impacket : Collection d'outils pour l'exploitation et les attaques réseau.
+
+5. Installation (Installation)
+Description : Phase où l'attaquant installe un accès persistant dans le système cible pour maintenir la présence. Cela peut inclure l'installation de backdoors ou de chevaux de Troie.
+Outils :
+Cobalt Strike : Pour la création de sessions persistantes.
+Metasploit : Pour installer des payloads persistants.
+RATs (Remote Access Trojans) : Outils comme njRAT ou DarkComet pour la prise de contrôle à distance.
+
+6. Commande et Contrôle (Command and Control - C2)
+Description : Phase où l'attaquant établit un canal de communication avec le système compromis pour envoyer des commandes et exfiltrer des données.
+Outils :
+Cobalt Strike : Pour la gestion des communications entre l'attaquant et le système compromis.
+Empire : Framework pour la gestion des sessions d'accès.
+DNS Tunneling Tools : Pour exfiltrer des données via des requêtes DNS.
+
+7. Actions sur Objectifs (Actions on Objectives)
+Description : Phase finale où l'attaquant atteint ses objectifs, que ce soit pour voler des données, perturber les opérations, ou d'autres actions malveillantes.
+Outils :
+Data Exfiltration Tools : Outils comme exfiltration par HTTP/HTTPS ou par e-mail.
+Destruction Tools : Outils pour la suppression ou le chiffrement de données (ex. : ransomware).
+Lateral Movement Tools : Outils comme PsExec ou Mimikatz pour se déplacer latéralement dans le réseau.
+
+Prévention et Détection :
+Pour chaque phase de la Kill Chain, il est important de mettre en place des contrôles et des mesures de prévention :
+
+Reconnaissance : Surveillance du réseau pour détecter les scans et les recherches d'informations.
+Arme : Analyse des outils et des techniques d'attaque potentiels.
+Livraison : Utilisation de filtres anti-spam, de solutions antivirus, et de formation des utilisateurs.
+Exploitation : Mise en œuvre de correctifs de sécurité, de solutions de prévention des intrusions (IPS), et de surveillance des systèmes.
+Installation : Surveillance des processus et des comportements anormaux.
+C2 : Détection des communications suspectes et mise en place de solutions de filtrage.
+Actions sur Objectifs : Surveillance des activités suspectes, des tentatives d'exfiltration de données et des perturbations dans les opérations.
+En comprenant et en surveillant chacune de ces phases, les organisations peuvent mieux se protéger contre les cyberattaques et minimiser l'impact des incidents de sécurité.
