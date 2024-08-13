@@ -1,0 +1,69 @@
+
+## 1. Concepts de Base
+
+Cryptographie : Science de la sécurisation des informations via des techniques de transformation des données.
+Chiffrement : Processus de conversion de données en une forme non lisible appelée texte chiffré.
+Déchiffrement : Processus inverse du chiffrement, permettant de retrouver le texte en clair à partir du texte chiffré.
+Clé : Séquence de bits utilisée pour chiffrer ou déchiffrer des données.
+
+## 2. Types de Cryptographie
+
+  A. Symétrique (à clé secrète)
+  Algorithme : Utilise une seule clé pour chiffrer et déchiffrer.
+  Exemples :
+  AES (Advanced Encryption Standard) : Chiffrement par bloc, standard pour les données sensibles.
+  DES (Data Encryption Standard) : Ancien standard, moins sécurisé aujourd'hui.
+  Avantages : Rapide et efficace pour de grandes quantités de données.
+  Inconvénients : Distribution sécurisée de la clé est un défi.
+  Outils Open Source :
+  OpenSSL : Bibliothèque robuste pour le chiffrement AES, génération de clés, et bien plus.
+  GnuPG (GPG) : Permet le chiffrement de fichiers et d'emails en utilisant des algorithmes symétriques.
+
+  B. Asymétrique (à clé publique)
+  Algorithme : Utilise une paire de clés, une publique pour chiffrer et une privée pour déchiffrer.
+  Exemples :
+  RSA : Utilisé pour le chiffrement, la signature numérique, et l'échange de clés.
+  ECC (Elliptic Curve Cryptography) : Offre une sécurité comparable à RSA avec des clés plus courtes.
+  Avantages : Sécurise l'échange de clés, facile à déployer pour les communications sécurisées.
+  Inconvénients : Moins rapide que les algorithmes symétriques.
+  Outils Open Source :
+  OpenSSL : Prise en charge complète de RSA et ECC pour le chiffrement et la génération de clés.
+  GnuPG (GPG) : Implémentation complète des algorithmes asymétriques pour la sécurisation des communications.
+
+  C. Cryptographie de Hashing
+  Fonction de hachage : Convertit des données de taille variable en une empreinte de taille fixe.
+  Exemples :
+  SHA-256 : Utilisé dans les certificats numériques et la blockchain.
+  MD5 : Obsolète en raison de ses vulnérabilités, mais encore utilisé pour les checksums.
+  Avantages : Permet de vérifier l'intégrité des données.
+  Inconvénients : Ne peut pas être utilisé pour le chiffrement ou le déchiffrement.
+  Outils Open Source :
+  Hashcat : Outil de cracking de mots de passe puissant, supportant une large gamme d'algorithmes de hachage.
+  OpenSSL : Permet la génération de hachés en utilisant SHA-256, SHA-512, et d'autres fonctions de hachage.
+
+## 3. Concepts Avancés
+  A. Signature Numérique
+  Objectif : Garantir l'authenticité et l'intégrité d'un message.
+  Fonctionnement : Le message est haché, puis chiffré avec la clé privée de l'expéditeur. Le destinataire peut vérifier la signature avec la clé publique de l'expéditeur.
+  Outils Open Source :
+  GnuPG (GPG) : Permet la création et la vérification de signatures numériques.
+  OpenSSL : Fournit des commandes pour signer et vérifier des fichiers.
+
+  B. Certificats SSL/TLS
+  Objectif : Sécuriser les communications sur Internet.
+  Fonctionnement : Utilise le chiffrement asymétrique pour échanger une clé symétrique, qui est ensuite utilisée pour chiffrer les données échangées.
+  Outils Open Source :
+  OpenSSL : Principal outil pour la génération de certificats SSL/TLS et la gestion des infrastructures à clés publiques (PKI).
+  Certbot : Outil pour automatiser l'obtention et le renouvellement de certificats SSL/TLS via Let's Encrypt.
+  C. Cryptographie Homomorphe
+  Objectif : Permet de réaliser des calculs sur des données chiffrées sans les déchiffrer.
+  Utilisation : Sécurisation des données dans le cloud, machine learning sécurisé.
+  Outils Open Source :
+  Microsoft SEAL : Bibliothèque de cryptographie homomorphe open source.
+  HElib : Bibliothèque en C++ pour la cryptographie homomorphe développée par IBM.
+
+## 4. Pratiques de Sécurité
+Utilisation de Clés Fortes : Toujours préférer des clés de 256 bits pour AES et de 2048 bits pour RSA.
+Gestion des Clés : Utiliser des gestionnaires de clés et des infrastructures à clés publiques (PKI) pour sécuriser et gérer les clés.
+Mise à Jour Régulière : Maintenir à jour les algorithmes et logiciels cryptographiques pour protéger contre les nouvelles vulnérabilités.
+Éviter les Algorithmes Obsolètes : Ne plus utiliser DES, 3DES, ou MD5 en raison de leurs vulnérabilités connues.
