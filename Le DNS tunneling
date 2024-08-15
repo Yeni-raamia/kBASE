@@ -1,0 +1,29 @@
+Le DNS tunneling est une technique utilisée pour exfiltrer des données ou établir une communication entre un attaquant et un système compromis en utilisant le protocole DNS (Domain Name System). En temps normal, le DNS est utilisé pour traduire des noms de domaine lisibles par l'homme (comme www.example.com) en adresses IP que les ordinateurs utilisent pour communiquer entre eux. Cependant, cette technique détourne le DNS à des fins malveillantes.
+
+## Comment fonctionne le DNS tunneling ?
+
+  1- Compromission initiale :
+L'attaquant compromet un système à l'intérieur du réseau cible, souvent par des méthodes comme l'hameçonnage (phishing), les exploits de logiciels, ou d'autres formes d'intrusion.
+
+  2-Mise en place du tunnel DNS :
+Le malware ou l'outil de l'attaquant sur le système compromis encapsule des données (souvent chiffrées) à l'intérieur de requêtes DNS. Les requêtes DNS, au lieu de simplement demander la traduction d'un nom de domaine en adresse IP, contiennent des informations codées.
+Ces requêtes sont envoyées à un serveur DNS contrôlé par l'attaquant. Les serveurs DNS publics ne soupçonnent généralement pas ces requêtes malveillantes, car le DNS est un service fondamental qui est rarement bloqué.
+
+  3- Communication via le serveur DNS :
+Le serveur DNS de l'attaquant reçoit ces requêtes, décode les données encapsulées, et peut répondre avec d'autres données encapsulées dans des réponses DNS. Cela permet à l'attaquant de communiquer avec le système compromis sans éveiller les soupçons.
+Par exemple, une requête DNS pourrait demander la résolution d'un sous-domaine complexe comme encodeddata.malicious-domain.com, où encodeddata contient les informations envoyées par le malware.
+
+  4- Exfiltration de données :
+L'attaquant peut utiliser ce tunnel pour exfiltrer des données sensibles, telles que des mots de passe, des informations confidentielles, ou d'autres données critiques, en passant inaperçu.
+
+5- Pourquoi le DNS tunneling est-il difficile à détecter ?
+    -Utilisation légitime du DNS : Le DNS est un service essentiel sur un réseau, il est donc rarement filtré ou bloqué.
+    -Encapsulation dans un trafic habituel : Les données malveillantes sont encapsulées dans des requêtes DNS, qui ressemblent à du trafic DNS normal.
+    -Détection complexe : Détecter le DNS tunneling nécessite l'analyse approfondie des requêtes DNS, comme la détection de motifs inhabituels ou de volumes anormalement élevés de requêtes DNS.
+
+6-Prévention et détection du DNS tunneling
+    -Surveillance du trafic DNS : Utiliser des outils de détection d'intrusion (IDS) ou de systèmes de prévention des intrusions (IPS) pour surveiller et analyser les requêtes DNS suspectes.
+    -Inspection des requêtes DNS : Analyser la longueur et la fréquence des requêtes DNS pour identifier celles qui peuvent contenir des données encapsulées.
+    -Utilisation de DNS sécurisés : Configurer des serveurs DNS sécurisés qui filtrent et bloquent les requêtes suspectes.
+
+Le DNS tunneling est une méthode puissante et discrète pour les attaquants, mais avec une bonne surveillance et des pratiques de sécurité rigoureuses, il est possible de détecter et de prévenir cette menace.
