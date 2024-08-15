@@ -27,3 +27,62 @@ L'attaquant peut utiliser ce tunnel pour exfiltrer des données sensibles, telle
     -Utilisation de DNS sécurisés : Configurer des serveurs DNS sécurisés qui filtrent et bloquent les requêtes suspectes.
 
 Le DNS tunneling est une méthode puissante et discrète pour les attaquants, mais avec une bonne surveillance et des pratiques de sécurité rigoureuses, il est possible de détecter et de prévenir cette menace.
+
+## Détection et Prévention du DNS Tunneling : Outils Open-Source Recommandés
+
+Il existe plusieurs outils open-source qui permettent de détecter et de prévenir le DNS tunneling. Ces outils sont souvent utilisés pour surveiller le trafic DNS, analyser les requêtes, et identifier des comportements anormaux qui pourraient indiquer l'utilisation de DNS tunneling. Voici quelques-uns des outils les plus couramment utilisés :
+
+1. Zeek (https://github.com/zeek/zeek)
+  - Description : Zeek est un puissant moteur d'analyse de réseau qui peut inspecter le trafic DNS en temps réel. Il permet de détecter des comportements suspects, y compris le DNS tunneling, en analysant les modèles de trafic et les requêtes DNS.
+
+  - Fonctionnalités :
+      . Analyse détaillée des requêtes DNS.
+      . Détection de comportements anormaux (par exemple, des requêtes DNS avec des noms de domaine trop longs ou des requêtes fréquentes).
+      . Possibilité de créer des scripts pour détecter des motifs spécifiques liés au DNS tunneling.
+
+2. DNSChef (https://github.com/iphelix/dnschef)
+  - Description : DNSChef est un proxy DNS configurable qui peut être utilisé pour rediriger le trafic DNS suspect ou pour surveiller les requêtes DNS en temps réel. Il est souvent utilisé dans les environnements de test ou comme une couche supplémentaire de sécurité.
+  
+  - Fonctionnalités :
+      . Possibilité de surveiller et d'analyser les requêtes DNS.
+      . Détection des comportements suspects ou anormaux.
+      . Redirection des requêtes DNS malveillantes vers un serveur DNS spécifique.
+
+3. nfdump / NfSen (https://github.com/phaag/nfsen )
+  Description : Nfdump est un outil de collecte et d'analyse des flux réseau (NetFlow). NfSen est une interface graphique pour Nfdump. Bien qu'il ne soit pas spécifiquement dédié au DNS, il peut être utilisé pour analyser le trafic DNS en corrélation avec d'autres données réseau pour détecter des activités suspectes, comme le DNS tunneling.
+  Fonctionnalités :
+      . Surveillance en temps réel des flux réseau.
+      . Analyse des volumes de trafic DNS.
+      . Détection des modèles de communication inhabituels.
+
+4. Suricata (https://github.com/OISF/suricata)
+  Description : Suricata est un système de détection d'intrusion (IDS) et de prévention d'intrusion (IPS) open-source qui peut inspecter le trafic DNS et détecter des schémas de DNS tunneling.
+
+  Fonctionnalités :
+      . Inspection en profondeur des paquets DNS.
+      . Détection des signatures spécifiques au DNS tunneling.
+      . Peut être couplé avec des règles personnalisées pour améliorer la détection.
+
+5. Snort (https://github.com/snort3/snort3)
+  -Description : Snort est un autre système de détection d'intrusion open-source. Comme Suricata, il peut être configuré avec des règles spécifiques pour détecter le DNS tunneling en surveillant les paquets DNS.
+  
+  -Fonctionnalités :
+      . Analyse en temps réel des paquets DNS.
+      . Détection basée sur des signatures.
+      . Extensible avec des règles personnalisées pour repérer des patterns spécifiques liés au DNS tunneling.
+
+6. IODINE (https://github.com/yarrick/iodine)
+  -Description : Iodine est un outil à double usage qui peut être utilisé à la fois pour configurer un tunnel DNS et pour détecter des activités DNS inhabituelles en laboratoire ou dans un environnement de test.
+  -Fonctionnalités :
+        . Émulation de tunnels DNS pour des tests de sécurité.
+        . Analyse des requêtes et des réponses DNS.
+
+7. Pi-hole avec des fonctionnalités avancées (https://github.com/pi-hole/pi-hole)
+  - Description : Pi-hole est généralement utilisé comme un bloqueur de publicités à l'échelle du réseau, mais il peut également être configuré pour détecter des requêtes DNS suspectes, y compris celles potentiellement utilisées pour le DNS tunneling.
+  
+  - Fonctionnalités :
+      . Surveillance en temps réel des requêtes DNS.
+      . Liste noire personnalisée pour bloquer les domaines suspects.
+      . Journalisation détaillée pour l'analyse des requêtes.
+
+Pour renforcer la sécurité contre le DNS tunneling, il est recommandé d'utiliser une combinaison de ces outils pour la surveillance et la détection, tout en implémentant des stratégies de réponse aux incidents. Des solutions comme Zeek et Suricata sont particulièrement puissantes pour la détection en temps réel, tandis que des outils comme Nfdump peuvent aider à l'analyse post-incident.
