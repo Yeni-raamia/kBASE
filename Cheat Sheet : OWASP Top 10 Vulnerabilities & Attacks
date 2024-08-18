@@ -1,0 +1,71 @@
+1. Injection (A01)
+Description: Une injection se produit lorsqu'un attaquant insère des données non sécurisées dans un interpréteur via une commande ou une requête. Les attaques incluent SQL, NoSQL, LDAP, et OS command injection.
+Attaques:
+SQL Injection: Insertion de code SQL dans une requête pour manipuler ou accéder aux données non autorisées.
+Command Injection: Exécution de commandes système sur le serveur via des entrées utilisateur non validées.
+Exemple:
+sql
+Copier le code
+SELECT * FROM users WHERE username = 'admin' -- ' AND password = 'password';
+2. Broken Authentication (A02)
+Description: Les fonctions d'authentification et de gestion des sessions sont souvent mal implémentées, permettant aux attaquants de compromettre les mots de passe, clés, ou jetons de session.
+Attaques:
+Credential Stuffing: Utilisation de combinaisons d'identifiants volées pour accéder à des comptes.
+Brute Force Attack: Deviner les mots de passe en essayant toutes les combinaisons possibles.
+Exemple: Réutilisation de mots de passe faibles ou compromission de jetons JWT non sécurisés.
+3. Sensitive Data Exposure (A03)
+Description: L'exposition des données sensibles peut survenir par manque de chiffrement, mauvaise gestion des clés, ou mauvaises pratiques de sécurité.
+Attaques:
+Man-in-the-Middle (MITM): Interception des communications entre deux parties pour voler des informations sensibles.
+Data Breaches: Accès non autorisé à des bases de données contenant des informations sensibles.
+Exemple: Transmission de données sensibles en clair (non chiffrées) sur HTTP.
+4. XML External Entities (XXE) (A04)
+Description: Une attaque XXE se produit lorsqu'un processeur XML mal configuré accepte des références à des entités externes, permettant à un attaquant d'accéder à des fichiers internes.
+Attaques:
+File Disclosure: Lecture de fichiers sensibles sur le serveur via des entités externes.
+Server-Side Request Forgery (SSRF): Forcer le serveur à effectuer des requêtes non autorisées.
+Exemple:
+xml
+Copier le code
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
+<foo>&xxe;</foo>
+5. Broken Access Control (A05)
+Description: Les restrictions d'accès sont souvent mal mises en œuvre, permettant à des utilisateurs non autorisés d'accéder à des ressources protégées.
+Attaques:
+Vertical Privilege Escalation: Accès à des fonctions d'administration en contournant les contrôles d'accès.
+Horizontal Privilege Escalation: Accès aux données d'autres utilisateurs du même niveau de privilège.
+Exemple: Accès à une page d'administration via une URL non protégée (/admin).
+6. Security Misconfiguration (A06)
+Description: Les applications et serveurs mal configurés peuvent permettre aux attaquants de découvrir des informations sensibles, de prendre le contrôle des systèmes ou de pénétrer dans le réseau.
+Attaques:
+Unpatched Software: Exploitation de vulnérabilités connues dans des logiciels non mis à jour.
+Default Credentials: Utilisation de comptes par défaut ou non modifiés (admin/admin).
+Exemple: Serveur avec des informations de débogage activées en production.
+7. Cross-Site Scripting (XSS) (A07)
+Description: Une vulnérabilité XSS se produit lorsque des scripts malveillants sont injectés dans une page web et exécutés dans le navigateur des utilisateurs.
+Attaques:
+Stored XSS: Insertion de scripts malveillants dans la base de données qui sont exécutés par les utilisateurs visitant la page.
+Reflected XSS: Injection de scripts dans des requêtes HTTP, exécutés immédiatement par le navigateur.
+Exemple:
+html
+Copier le code
+<script>alert('XSS');</script>
+8. Insecure Deserialization (A08)
+Description: La désérialisation de données non sécurisées peut conduire à des exécutions de code arbitraires, escalade de privilèges, ou déni de service (DoS).
+Attaques:
+Remote Code Execution (RCE): Exécution de code malveillant via des objets désérialisés non sécurisés.
+Injection Attacks: Manipulation des données désérialisées pour modifier le comportement de l'application.
+Exemple: Désérialisation d'un objet Java malveillant.
+9. Using Components with Known Vulnerabilities (A09)
+Description: Les applications utilisant des bibliothèques, frameworks, ou modules avec des vulnérabilités connues peuvent être compromises.
+Attaques:
+Dependency Confusion: Utilisation de dépendances malveillantes pour compromettre l'application.
+Exploitation des CVEs: Exploitation de vulnérabilités connues dans les composants tiers.
+Exemple: Utilisation d'une version vulnérable de Log4j.
+10. Insufficient Logging & Monitoring (A10)
+Description: L'absence de journaux d'audit et de surveillance des systèmes compromet la capacité à détecter et à répondre rapidement aux attaques.
+Attaques:
+Stealth Attacks: Attaques qui passent inaperçues en raison du manque de surveillance.
+Delayed Response: Réaction tardive aux incidents en raison de journaux insuffisants ou inaccessibles.
+Exemple: Inexistence de logs d'accès dans une application critique.
+Note: Ce cheat sheet est une synthèse des vulnérabilités les plus critiques identifiées par l'OWASP (Open Web Application Security Project). Il est essentiel de tester et de sécuriser vos applications en tenant compte de ces risques pour protéger vos systèmes et données sensibles.
